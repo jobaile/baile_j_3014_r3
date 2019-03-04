@@ -5,6 +5,8 @@
 		$create_user_query = 'INSERT INTO tbl_user(user_fname,user_name,user_pass,user_email, user_firstlogin)';
 		$create_user_query .= ' VALUES(:fname,:username,:password,:email, "1")';
 
+		//user first login; 1 = new, 2 = old
+		
 		$create_user_set = $pdo->prepare($create_user_query);
 		$create_user_set->execute(
 			array(
@@ -14,10 +16,11 @@
 				':email'=>$email
 			)
 		);
+
 		if($create_user_set->rowCount()){
 			redirect_to('index.php');
 		}else{
-			$message = 'Your hiring practices have failed you.. this individual sucks...';
+			$message = 'Oops, there is an error here.';
 			return $message;
 		}
 
