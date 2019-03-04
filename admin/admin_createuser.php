@@ -1,6 +1,6 @@
 <?php 
 	require_once('scripts/config.php');
-	// confirm_logged_in();
+	confirm_logged_in();
 
 	if(isset($_POST['submit'])){
 		//Do some preprocess for the data
