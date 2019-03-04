@@ -1,3 +1,3 @@
-#Research Assignment 3
+Research Assignment 3
 - Edit user
 
