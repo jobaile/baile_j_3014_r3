@@ -16,9 +16,6 @@ function login($username, $password, $ip){
 
 
 	if($user_set->fetchColumn()>0){
-		//TODO:Fill the following lines with the proper SQL query
-		// so that it can get all rows where user_name = $username
-		// and user_pass = $password
 		$get_user_query = 'SELECT * FROM tbl_user WHERE user_name = :username';
 		$get_user_query .= ' AND user_pass = :password';
 
@@ -37,6 +34,17 @@ function login($username, $password, $ip){
 			$id = $found_user['user_id'];
 			$_SESSION['user_id'] = $id;
 			$_SESSION['user_name'] = $found_user['user_name'];
+			$_SESSION['user_firstlogin'] = $firstlogin;
+
+			$firstlogin = $found_user['user_firstlogin'];
+
+              if($firstlogin === '1'){
+                redirect_to("admin_edituser.php");
+              }else if ($firstlogin === '2');{
+                redirect_to("index.php");
+              }
+
+
 
 			//Update user login IP
 			$update_ip_query = 'UPDATE tbl_user SET user_ip=:ip WHERE user_id=:id';
@@ -53,10 +61,15 @@ function login($username, $password, $ip){
 			$message = 'Login Failed!';
 			return $message;
 		}
-
 		redirect_to('index.php');
 	}else{
 		$message = 'Login Failed!';
 		return $message;
+	}
+
+	if($founduser['user_firstlogin'] == '1'){
+		redirect_to("admin_edituser.php");
+	} else {
+		redirect_to("admin_createuser.php");
 	}
 }
