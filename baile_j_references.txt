@@ -1,0 +1,14 @@
+https://howto.caspio.com/tech-tips-and-articles/common-customizations/create-user-specific- redirect-after-login/ 
+
+https://stackoverflow.com/questions/6576989/two-mysql-timestamp-columns-in-one-table
+* was looking at this for general reference about timestamps
+
+https://stackoverflow.com/questions/19605140/sql-check-if-timestamp-is-greater-than-24-hours-from-now-mysql
+
+https://stackoverflow.com/questions/4541205/counting-rows-where-a-timestamp-is-less-than-24-hours-old
+
+https://dev.mysql.com/doc/refman/5.5/en/date-and-time-functions.html#function_date-sub
+
+
+
+
